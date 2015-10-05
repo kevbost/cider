@@ -5,3 +5,11 @@ $icon-font-path: '../fonts/';
 // endbower
 
 @import "reset";
+
+// UNSORTED
+//-----------------------------
+
+.editable {
+  // supposed ios click event fix
+  cursor: pointer;
+}
