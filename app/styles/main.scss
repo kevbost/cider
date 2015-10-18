@@ -5,6 +5,7 @@ $icon-font-path: '../fonts/';
 // endbower
 
 @import "reset";
+@import "cloud-prototype";
 
 // UNSORTED
 //-----------------------------
@@ -14,183 +15,54 @@ $icon-font-path: '../fonts/';
   cursor: pointer;
 }
 
-$sky: lightblue;
+.sky {
+  margin-bottom: 50px;
 
+  .coldfront {
+    position: relative;
+    height: 400px;
+    background-color: lightblue;
 
-.inner-area{
-  position: relative;
-  height: 400px;
-  width: 400px;
-  background-color: lightblue;
-  margin: 0 auto;
+    .raincloud {
+      position: absolute;
+      // width: 100px;
+      // height: 100px;
+      left: calc(50% - 50px);
+      top: calc(25% - 50px);
 
+      .cloud {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        background-color: white;
 
-  &.dark {
-    background-color: darken($sky, 70%);
-    animation: dark 10s infinite;
-  }
-}
+        &:before {
+          width: 100px;
+          height: 70px;
+          border-radius: 50%;
+          display: inline-block;
+          background-color: white;
+          transform: translate(-80px, 30px);
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 0px;
+          content: "";
+        }
 
-@mixin cloudparts($t: 100px, $l: 100px, $bblr: 0px, $bbrr: 0px, $w: 100px, $h: 100px) {
-    top: $t;
-    left: $l;
-    width: $w;
-    height: $h;
-    border-bottom-left-radius: $bblr;
-    border-bottom-right-radius: $bbrr;
-    z-index: 2;
-}
-
-.cloud {
-  span {
-    height: 100px;
-    width: 100px;
-    background-color: white;
-    position: absolute;
-    border-radius: 50%;
-    transition: .5s;
-
-    &.part1 {
-      @include cloudparts(100px, 100px, 30px, 10px);
-      // top: 100px;
-      // left: 100px;
-      // border-bottom-left-radius: 30px;
-      // border-bottom-right-radius: 10px;
-    }
-
-    &.part2 {
-      @include cloudparts(80px, 150px, 10px, 10px, 100px, 120px);
-      // top: 80px;
-      // left: 150px;
-      // height: 120px;
-      // border-bottom-left-radius: 10px;
-      // border-bottom-right-radius: 10px;
-      // z-index: 2;
-    }
-
-    &.part3 {
-      @include cloudparts(130px, 225px, 10px, 50%, 55px, 70px);
-      border-top-right-radius: 30px;
-      // top: 130px;
-      // left: 225px;
-      // border-bottom-left-radius: 10px;
-      // width: 55px;
-      // height: 70px;
-      // z-index: 2;
-    }
-
-    &.part4 {
-      @include cloudparts(140px, 80px, 30px, 30px, 60px, 60px);
-      top: 140px;
-      left: 80px;
-      width: 60px;
-      height: 60px;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 10px;
-      z-index: 2;
-    }
-
-    &.rain {
-      top: 200px;
-      left: 115px;
-      width: 130px;
-      height: 200px;
-      border-radius: 0;
-      z-index: 1;
-      background-color: transparent;
-      transition: 10s;
-
-      &.dark {
-        background-color: darken($sky, 65%);
+        &:after {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          display: inline-block;
+          background-color: white;
+          transform: translate(70px, -55px);
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 30px;
+          content: "";
+        }
       }
     }
   }
 }
 
-/* .css-play {
-  &:hover {
-    .inner-area .cloud {
-      .part1 {
-        transform: translateX(-5px);
-      }
-      .part2 {
-        transform: translateX(5px);
-      }
-      .part3 {
-        transform: translateX(-5px);
-      }
-      .part4 {
-        transform: translateX(5px);
-      }
-    }
-  }
-}
- */
-
-
-.storm {
-  animation: cloud 10s infinite;
-
-  span {
-    background-color: $gray-dark;
-  }
-
-  .part1 {
-    animation: part1 3s infinite;
-  }
-
-  .part2 {
-    animation: part2 3s infinite;
-  }
-
-  .part3 {
-    animation: part3 3s infinite;
-  }
-
-  .part4 {
-    animation: part4 3s infinite;
-  }
-}
-
-
-@keyframes cloud {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-50px); }
-  50% { transform: translateX(0); }
-  75% { transform: translateX(50px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes dark {
-  0% {  }
-  25% {  }
-  50% {  }
-  75% { background-color: darken($sky, 70%); }
-  76% { background-color: yellow }
-  77% { background-color: darken($sky, 70%); }
-  100% {  }
-}
-
-@keyframes part1 {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes part2 {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(5px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes part3 {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes part4 {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(5px); }
-  100% { transform: translateX(0); }
-}
