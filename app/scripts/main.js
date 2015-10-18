@@ -60,4 +60,15 @@ $(document).on('click', '.save-button', function(){
       savesomething('main-body', newValue)
     })
   })
+  .on('click', '.inner-area', function(){
+    $('.cloud').toggleClass('storm');
+    $('.inner-area, .rain').toggleClass('dark');
+  })
 ;
+
+
+
+// =========================
+// =========================
+// =========================
+// =========================

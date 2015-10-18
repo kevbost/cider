@@ -13,7 +13,7 @@ gulp.task('styles', () => {
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
-      outputStyle: 'expanded',
+      outputStyle: 'condensed',
       precision: 10,
       includePaths: ['.']
     }).on('error', $.sass.logError))
