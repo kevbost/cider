@@ -3,7 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=1000, initial-scale=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      window.onload = function () {
+          if(window.innerWidth <= 1000) {
+              var mvp = document.getElementById('myViewport');
+              mvp.setAttribute('content','width=1000');
+          }
+      }
+   </script>
     <title>cider</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
