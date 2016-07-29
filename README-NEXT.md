@@ -7,7 +7,7 @@
 5. Open Unity, select cloned folder.
 6. Make sure the below table matches on screen values
 7. `Project/App/project.sln` in **VS OPENED AS ADMIN**
-8. Debug > x86 > Emulator / Remote Machine
+8. Debug > x86 > Emulator / Remote
 
 | Label | Value |
 | --- | --- |
